@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Infinity Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Infinity Learning</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="live.html">Live Classes</a>
+        <a href="recorded.html">Recorded Classes</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Create Your Account</h2>
+    <p>Register and start learning today!</p>
+</section>
+
+<section class="login-box">
+
+<form onsubmit="registerUser(event)">
+
+<input type="text" id="name" placeholder="Full Name" required>
+<br><br>
+
+<input type="email" id="email" placeholder="Email Address" required>
+<br><br>
+
+<input type="password" id="password" placeholder="Password" required>
+<br><br>
+
+<input type="password" id="confirm" placeholder="Confirm Password" required>
+<br><br>
+
+<button type="submit">Register</button>
+
+</form>
+
+<p style="margin-top:20px;">
+Already have an account?
+<a href="login.html">Login Here</a>
+</p>
+
+</section>
+
+<footer>
+<p>© 2026 Infinity Learning | All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
