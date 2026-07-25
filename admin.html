@@ -22,7 +22,7 @@
 <section class="login-box">
 
     <div id="adminLoginSection" class="admin-login-section">
-        <h2>Admin Login</h2>
+        <h2>🔐 Admin Login</h2>
         <form id="adminLoginForm">
             <input type="email" id="adminEmail" name="adminEmail" placeholder="Admin Email" required>
             <br><br>
@@ -30,22 +30,24 @@
             <br><br>
             <button type="submit">Login as Admin</button>
         </form>
-        <p style="margin-top: 15px; color: #666; font-size: 14px;">
+        <p style="margin-top: 20px; color: #666; font-size: 13px; border-top: 1px solid #ddd; padding-top: 15px;">
             <strong>Demo Credentials:</strong><br>
-            Email: admin@infinity.com<br>
-            Password: admin123
+            📧 Email: admin@infinity.com<br>
+            🔑 Password: admin123
         </p>
     </div>
 
     <div id="adminPanel" class="admin-panel login-hidden">
-        <h2>Admin Dashboard</h2>
+        <h2>🎛️ Admin Control Panel</h2>
         
-        <div class="admin-menu">
-            <button type="button" data-action="view-all-users">👥 View All Users</button>
-            <button type="button" data-action="page-layout-settings">📐 Page Layout Settings</button>
-            <button type="button" data-action="interference-settings">⚙️ Interference Control</button>
-            <button type="button" data-action="export-all-data">📥 Export Data</button>
-            <button type="button" data-action="admin-logout">🚪 Logout</button>
+        <div class="admin-dashboard-nav">
+            <button type="button" class="admin-nav-btn" data-action="dashboard-home">📊 Dashboard</button>
+            <button type="button" class="admin-nav-btn" data-action="view-all-students">👨‍🎓 All Students</button>
+            <button type="button" class="admin-nav-btn" data-action="view-all-teachers">👨‍🏫 All Teachers</button>
+            <button type="button" class="admin-nav-btn" data-action="page-layout-settings">📐 Layout Settings</button>
+            <button type="button" class="admin-nav-btn" data-action="interference-settings">⚙️ Interference</button>
+            <button type="button" class="admin-nav-btn" data-action="export-all-data">📥 Export Data</button>
+            <button type="button" class="admin-nav-btn logout-btn" data-action="admin-logout">🚪 Logout</button>
         </div>
 
         <div id="adminContent" class="admin-content"></div>
