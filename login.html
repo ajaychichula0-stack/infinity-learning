@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+    <meta name="referrer" content="same-origin">
     <title>Login - Infinity Learning</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,40 +12,114 @@
 
 <header>
     <h1>Infinity Learning</h1>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="courses.html">Courses</a>
-        <a href="live.html">Live Classes</a>
-        <a href="recorded.html">Recorded Classes</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
-    </nav>
 </header>
 
 <section class="hero">
-    <h2>Student Login</h2>
+    <h2>Login to Infinity Learning</h2>
     <p>Login to continue your learning journey.</p>
 </section>
 
 <section class="login-box">
 
-    <form>
+    <div class="login-tabs">
+        <button type="button" class="tab-button active" data-login-type="student">Student Login</button>
+        <button type="button" class="tab-button" data-login-type="teacher">Teacher Login</button>
+    </div>
 
-        <input type="email" placeholder="Enter Email" required>
-
+    <form id="studentForm" class="login-form">
+        <input type="email" id="studentEmail" name="studentEmail" placeholder="Enter Email" required autocomplete="email">
         <br><br>
-
-        <input type="password" placeholder="Enter Password" required>
-
+        <input type="password" id="studentPassword" name="studentPassword" placeholder="Enter Password" required autocomplete="current-password">
         <br><br>
-
-        <button type="submit">Login</button>
-
+        <button type="submit">Login as Student</button>
     </form>
 
-    <br>
+    <form id="teacherForm" class="login-form login-hidden">
+        <input type="email" id="teacherEmail" name="teacherEmail" placeholder="Enter Teacher Email" required autocomplete="email">
+        <br><br>
+        <input type="password" id="teacherPassword" name="teacherPassword" placeholder="Enter Password" required autocomplete="current-password">
+        <br><br>
+        <button type="submit">Login as Teacher</button>
+    </form>
+
+    <section id="teacherDashboard" class="teacher-dashboard login-hidden">
+        <h2>Teacher Dashboard</h2>
+        
+        <div class="teacher-features">
+            
+            <div class="feature-card">
+                <h3>📹 Upload Recorded Classes</h3>
+                <p>Upload recorded class videos for your students</p>
+                <label for="recordedVideo">Select Video:</label>
+                <input type="file" id="recordedVideo" name="recordedVideo" accept="video/*">
+                <input type="text" id="recordedClassTitle" name="recordedClassTitle" placeholder="Class Title" required>
+                <input type="text" id="recordedClassSubject" name="recordedClassSubject" placeholder="Subject" required>
+                <input type="number" id="recordedDuration" name="recordedDuration" placeholder="Duration (in minutes)" required>
+                <textarea id="recordedDescription" name="recordedDescription" placeholder="Class Description"></textarea>
+                <button type="button" data-action="upload-recorded-class">Upload Recorded Class</button>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎥 Schedule Live Classes</h3>
+                <p>Schedule live class sessions with your students</p>
+                <input type="text" id="liveClassName" name="liveClassName" placeholder="Class Name" required>
+                <input type="text" id="liveClassSubject" name="liveClassSubject" placeholder="Subject" required>
+                <input type="text" id="liveClassInstructor" name="liveClassInstructor" placeholder="Instructor Name" required>
+                <label for="liveScheduleDate">Date:</label>
+                <input type="date" id="liveScheduleDate" name="liveScheduleDate" required>
+                <label for="liveScheduleTime">Start Time:</label>
+                <input type="time" id="liveScheduleTime" name="liveScheduleTime" required>
+                <label for="liveScheduleDuration">Duration:</label>
+                <select id="liveScheduleDuration" name="liveScheduleDuration">
+                    <option>Select Duration</option>
+                    <option>30 minutes</option>
+                    <option>1 hour</option>
+                    <option>1.5 hours</option>
+                    <option>2 hours</option>
+                </select>
+                <textarea id="liveClassTopic" name="liveClassTopic" placeholder="Topic/Description" required></textarea>
+                <button type="button" data-action="schedule-live-class">Schedule Live Class</button>
+            </div>
+
+            <div class="feature-card">
+                <h3>📝 Create & Manage Quiz</h3>
+                <p>Create quizzes with questions and answers for students</p>
+                <input type="text" id="quizTitle" name="quizTitle" placeholder="Quiz Title" required>
+                <input type="text" id="quizQuestion" name="quizQuestion" placeholder="Enter Question" required>
+                <input type="text" id="quizOption1" name="quizOption1" placeholder="Option 1" required>
+                <input type="text" id="quizOption2" name="quizOption2" placeholder="Option 2" required>
+                <input type="text" id="quizOption3" name="quizOption3" placeholder="Option 3" required>
+                <input type="text" id="quizOption4" name="quizOption4" placeholder="Option 4" required>
+                <label for="correctAnswer">Correct Answer:</label>
+                <select id="correctAnswer" name="correctAnswer">
+                    <option>Select Correct Answer</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                </select>
+                <button type="button" data-action="create-quiz">Add Question</button>
+            </div>
+
+        </div>
+
+        <button type="button" class="logout-btn" data-action="teacher-logout">Logout</button>
+    </section>
+
+    <section id="studentDashboard" class="student-dashboard login-hidden">
+        <h2>Student Dashboard</h2>
+        
+        <nav class="dashboard-nav">
+            <button type="button" data-action="go-to-courses">Courses</button>
+            <button type="button" data-action="go-to-contact-details">Contact Details</button>
+            <button type="button" data-action="student-logout" class="logout-nav">Logout</button>
+        </nav>
+
+        <div id="dashboardContent" class="dashboard-content">
+            <h3>Welcome to Your Dashboard!</h3>
+            <p>Select from the menu above to navigate through different sections.</p>
+        </div>
+    </section>
 
     <p>Don't have an account?</p>
 

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+    <meta name="referrer" content="same-origin">
     <title>Live Classes - Infinity Learning</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -33,21 +35,21 @@
         <h3>eapcet</h3>
         <p><strong>Date:</strong> Monday</p>
         <p><strong>Time:</strong> 10:00 AM</p>
-        <button onclick="joinClass()">Join Live Class</button>
+        <button type="button" data-action="join-class" data-class-name="eapcet">Join Live Class</button>
     </div>
 
     <div class="course-card">
         <h3>jeemains</h3>
         <p><strong>Date:</strong> Wednesday</p>
         <p><strong>Time:</strong> 2:00 PM</p>
-        <button onclick="joinClass()">Join Live Class</button>
+        <button type="button" data-action="join-class" data-class-name="jeemains">Join Live Class</button>
     </div>
 
     <div class="course-card">
         <h3>☕ neet</h3>
         <p><strong>Date:</strong> Friday</p>
         <p><strong>Time:</strong> 6:00 PM</p>
-        <button onclick="joinClass()">Join Live Class</button>
+        <button type="button" data-action="join-class" data-class-name="neet">Join Live Class</button>
     </div>
 
 </section>

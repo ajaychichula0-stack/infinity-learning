@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
+    <meta name="referrer" content="same-origin">
     <title>Contact - Infinity Learning</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,15 +31,15 @@
 
 <section class="login-box">
 
-    <form>
+    <form id="contactForm">
 
-        <input type="text" placeholder="Your Name" required>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
         <br><br>
 
-        <input type="email" placeholder="Your Email" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
         <br><br>
 
-        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
         <br><br>
 
         <button type="submit">Send Message</button>
