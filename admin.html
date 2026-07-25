@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'">
+    <meta name="referrer" content="same-origin">
+    <title>Admin Panel - Infinity Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Infinity Learning - Admin Panel</h1>
+</header>
+
+<section class="hero">
+    <h2>Admin Dashboard</h2>
+    <p>Manage all users and system data</p>
+</section>
+
+<section class="login-box">
+
+    <div id="adminLoginSection" class="admin-login-section">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm">
+            <input type="email" id="adminEmail" name="adminEmail" placeholder="Admin Email" required>
+            <br><br>
+            <input type="password" id="adminPassword" name="adminPassword" placeholder="Admin Password" required>
+            <br><br>
+            <button type="submit">Login as Admin</button>
+        </form>
+    </div>
+
+    <div id="adminPanel" class="admin-panel login-hidden">
+        <h2>Admin Dashboard</h2>
+        
+        <div class="admin-menu">
+            <button type="button" data-action="view-all-students">View All Students</button>
+            <button type="button" data-action="view-all-teachers">View All Teachers</button>
+            <button type="button" data-action="view-system-stats">System Statistics</button>
+            <button type="button" data-action="export-all-data">Export All Data</button>
+            <button type="button" data-action="admin-logout">Logout</button>
+        </div>
+
+        <div id="adminContent" class="admin-content"></div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Infinity Learning | All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
