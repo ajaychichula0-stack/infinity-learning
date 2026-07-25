@@ -16,7 +16,7 @@
 
 <section class="hero">
     <h2>Admin Dashboard</h2>
-    <p>Manage all users and system data</p>
+    <p>Manage all users and system settings</p>
 </section>
 
 <section class="login-box">
@@ -30,17 +30,22 @@
             <br><br>
             <button type="submit">Login as Admin</button>
         </form>
+        <p style="margin-top: 15px; color: #666; font-size: 14px;">
+            <strong>Demo Credentials:</strong><br>
+            Email: admin@infinity.com<br>
+            Password: admin123
+        </p>
     </div>
 
     <div id="adminPanel" class="admin-panel login-hidden">
         <h2>Admin Dashboard</h2>
         
         <div class="admin-menu">
-            <button type="button" data-action="view-all-students">View All Students</button>
-            <button type="button" data-action="view-all-teachers">View All Teachers</button>
-            <button type="button" data-action="view-system-stats">System Statistics</button>
-            <button type="button" data-action="export-all-data">Export All Data</button>
-            <button type="button" data-action="admin-logout">Logout</button>
+            <button type="button" data-action="view-all-users">👥 View All Users</button>
+            <button type="button" data-action="page-layout-settings">📐 Page Layout Settings</button>
+            <button type="button" data-action="interference-settings">⚙️ Interference Control</button>
+            <button type="button" data-action="export-all-data">📥 Export Data</button>
+            <button type="button" data-action="admin-logout">🚪 Logout</button>
         </div>
 
         <div id="adminContent" class="admin-content"></div>
