@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
-    <meta name="referrer" content="same-origin">
     <title>Recorded Classes - Infinity Learning</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,50 +10,24 @@
 
 <header>
     <h1>Infinity Learning</h1>
-
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="courses.html">Courses</a>
         <a href="live.html">Live Classes</a>
-        <a href="recorded.html">Recorded Classes</a>
+        <a href="recorded.html" class="active">Recorded Classes</a>
         <a href="contact.html">Contact</a>
         <a href="login.html">Login</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Recorded Classes</h2>
-    <p>Watch your favorite courses anytime, anywhere.</p>
+    <h2>Recorded Video Library</h2>
+    <p>Watch full lesson lectures anytime, anywhere</p>
 </section>
 
-<section class="courses">
-
-    <div class="course-card">
-        <h3>eapcet & jeemains</h3>
-        <p>Duration: 2 Hours</p>
-        <button type="button" data-action="watch-video" data-course-name="eapcet & jeemains">▶ Watch Now</button>
-    </div>
-
-    <div class="course-card">
-        <h3>🎥neet</h3>
-        <p>Duration: 3 Hours</p>
-        <button type="button" data-action="watch-video" data-course-name="neet">▶ Watch Now</button>
-    </div>
-
-    <div class="course-card">
-        <h3>🎥 novadaya</h3>
-        <p>Duration: 4 Hours</p>
-        <button type="button" data-action="watch-video" data-course-name="novadaya">▶ Watch Now</button>
-    </div>
-
-    <div class="course-card">
-        <h3>🎥 stateboard</h3>
-        <p>Duration: 5 Hours</p>
-
-        <button type="button" data-action="watch-video" data-course-name="stateboard">▶ Watch Now</button>
-    </div>
-
+<section class="main-container">
+    <div id="recordedClassesContainer" class="courses-grid"></div>
 </section>
 
 <footer>
@@ -63,6 +35,5 @@
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>

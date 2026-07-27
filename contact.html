@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
-    <meta name="referrer" content="same-origin">
     <title>Contact - Infinity Learning</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,47 +10,39 @@
 
 <header>
     <h1>Infinity Learning</h1>
-
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="courses.html">Courses</a>
         <a href="live.html">Live Classes</a>
         <a href="recorded.html">Recorded Classes</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="active">Contact</a>
         <a href="login.html">Login</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Contact Us</h2>
-    <p>We are happy to help you!</p>
+    <h2>Contact Support</h2>
+    <p>We are here to assist your learning journey!</p>
 </section>
 
-<section class="login-box">
+<section class="contact-box">
 
     <form id="contactForm">
-
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <br><br>
-
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <br><br>
-
-        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-        <br><br>
-
+        <div class="form-matrix-grid">
+            <input type="text" id="name" placeholder="Your Full Name" required>
+            <input type="email" id="email" placeholder="Your Email Address" required>
+        </div>
+        <textarea id="message" placeholder="Write your message here..." rows="5" required></textarea>
         <button type="submit">Send Message</button>
-
     </form>
 
-    <br>
-
-    <h3>Contact Information</h3>
-
-    <p>📧 ajaychichuchil@gmail.com</p>
-    <p>📞 +91 7416679400</p>
-    <p>📍 Andhra Pradesh, India</p>
+    <div style="margin-top: 2rem;">
+        <h3>Contact Information</h3>
+        <p>📧 support@infinitylearning.com</p>
+        <p>📞 +91 7416679400</p>
+        <p>📍 Andhra Pradesh, India</p>
+    </div>
 
 </section>
 
@@ -61,6 +51,5 @@
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>

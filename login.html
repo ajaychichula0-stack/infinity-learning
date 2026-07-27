@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';">
-    <meta name="referrer" content="same-origin">
     <title>Login - Infinity Learning</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,120 +10,311 @@
 
 <header>
     <h1>Infinity Learning</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="live.html">Live Classes</a>
+        <a href="recorded.html">Recorded Classes</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="active">Login</a>
+    </nav>
 </header>
 
 <section class="hero">
-    <h2>Login to Infinity Learning</h2>
-    <p>Login to continue your learning journey.</p>
+    <h2>Learning Management Portal</h2>
+    <p>Access your dashboard as a Teacher or Student</p>
 </section>
 
 <section class="login-box">
 
     <div class="login-tabs">
-        <button type="button" class="tab-button active" data-login-type="student">Student Login</button>
-        <button type="button" class="tab-button" data-login-type="teacher">Teacher Login</button>
+        <button type="button" class="tab-button active" data-action="switch-login-type" data-login-type="student">Student Login</button>
+        <button type="button" class="tab-button" data-action="switch-login-type" data-login-type="teacher">Teacher Login</button>
+        <button type="button" class="tab-button" data-action="switch-login-type" data-login-type="admin">Admin Login</button>
     </div>
 
+    <!-- Student Login Form -->
     <form id="studentForm" class="login-form">
-        <input type="email" id="studentEmail" name="studentEmail" placeholder="Enter Email" required autocomplete="email">
-        <br><br>
-        <input type="password" id="studentPassword" name="studentPassword" placeholder="Enter Password" required autocomplete="current-password">
-        <br><br>
+        <div class="form-matrix-grid">
+            <div>
+                <label>Email Address</label>
+                <input type="email" id="studentEmail" placeholder="student@learning.com" required autocomplete="email">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" id="studentPassword" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+        </div>
         <button type="submit">Login as Student</button>
     </form>
 
+    <!-- Teacher Login Form -->
     <form id="teacherForm" class="login-form login-hidden">
-        <input type="email" id="teacherEmail" name="teacherEmail" placeholder="Enter Teacher Email" required autocomplete="email">
-        <br><br>
-        <input type="password" id="teacherPassword" name="teacherPassword" placeholder="Enter Password" required autocomplete="current-password">
-        <br><br>
+        <div class="form-matrix-grid">
+            <div>
+                <label>Teacher Email</label>
+                <input type="email" id="teacherEmail" placeholder="teacher@learning.com" required autocomplete="email">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" id="teacherPassword" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+        </div>
         <button type="submit">Login as Teacher</button>
     </form>
+    <!-- Admin Login Form -->
+    <form id="adminForm" class="login-form login-hidden">
+        <div class="form-matrix-grid">
+            <div>
+                <label>Admin Email</label>
+                <input type="email" id="adminEmail" placeholder="admin@learning.com" required autocomplete="email">
+            </div>
+            <div>
+                <label>Admin Password</label>
+                <input type="password" id="adminPassword" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+        </div>
+        <button type="submit">Login as Admin</button>
+    </form>
 
+    <!-- Teacher Dashboard Section -->
     <section id="teacherDashboard" class="teacher-dashboard login-hidden">
-        <h2>Teacher Dashboard</h2>
+        <h2>Teacher Management Portal</h2>
         
-        <div class="teacher-features">
+        <div class="teacher-features grid-matrix">
             
             <div class="feature-card">
-                <h3>📹 Upload Recorded Classes</h3>
-                <p>Upload recorded class videos for your students</p>
-                <label for="recordedVideo">Select Video:</label>
-                <input type="file" id="recordedVideo" name="recordedVideo" accept="video/*">
-                <input type="text" id="recordedClassTitle" name="recordedClassTitle" placeholder="Class Title" required>
-                <input type="text" id="recordedClassSubject" name="recordedClassSubject" placeholder="Subject" required>
-                <input type="number" id="recordedDuration" name="recordedDuration" placeholder="Duration (in minutes)" required>
-                <textarea id="recordedDescription" name="recordedDescription" placeholder="Class Description"></textarea>
-                <button type="button" data-action="upload-recorded-class">Upload Recorded Class</button>
+                <h3>📚 Upload Courses</h3>
+                <p>Add new courses to the dynamic student catalog</p>
+                <input type="text" id="courseName" placeholder="Course Name" required>
+                <input type="text" id="courseDescription" placeholder="Short Description" required>
+                <textarea id="courseDetails" placeholder="Detailed Syllabus" rows="3"></textarea>
+                <button type="button" data-action="upload-course">Add Course</button>
             </div>
 
             <div class="feature-card">
+                <h3>📹 Upload Recorded Classes</h3>
+                <p>Upload video files and lesson materials</p>
+                <input type="file" id="recordedVideo" accept="video/*">
+                <input type="text" id="recordedClassTitle" placeholder="Class Title" required>
+                <input type="text" id="recordedClassSubject" placeholder="Subject" required>
+                <input type="number" id="recordedDuration" placeholder="Duration (minutes)" required>
+                <textarea id="recordedDescription" placeholder="Description" rows="2"></textarea>
+                <button type="button" data-action="upload-recorded-class">Upload Class</button>
+            </div>
+            <div class="feature-card">
+                <h3>📄 Upload Study Notes</h3>
+                <p>Provide reference PDFs & documents</p>
+                <input type="text" id="notesTitle" placeholder="Notes Title" required>
+                <input type="text" id="notesSubject" placeholder="Subject" required>
+                <input type="text" id="notesAuthor" placeholder="Author/Teacher Name">
+                <input type="file" id="notesFile" accept=".pdf,.doc,.docx">
+                <button type="button" data-action="upload-notes">Upload Notes</button>
+            </div>
+            <div class="feature-card">
                 <h3>🎥 Schedule Live Classes</h3>
-                <p>Schedule live class sessions with your students</p>
-                <input type="text" id="liveClassName" name="liveClassName" placeholder="Class Name" required>
-                <input type="text" id="liveClassSubject" name="liveClassSubject" placeholder="Subject" required>
-                <input type="text" id="liveClassInstructor" name="liveClassInstructor" placeholder="Instructor Name" required>
-                <label for="liveScheduleDate">Date:</label>
-                <input type="date" id="liveScheduleDate" name="liveScheduleDate" required>
-                <label for="liveScheduleTime">Start Time:</label>
-                <input type="time" id="liveScheduleTime" name="liveScheduleTime" required>
-                <label for="liveScheduleDuration">Duration:</label>
-                <select id="liveScheduleDuration" name="liveScheduleDuration">
-                    <option>Select Duration</option>
+                <p>Broadcast schedule to student live center</p>
+                <input type="text" id="liveClassName" placeholder="Class Name" required>
+                <input type="text" id="liveClassSubject" placeholder="Subject" required>
+                <input type="date" id="liveScheduleDate" required>
+                <input type="time" id="liveScheduleTime" required>
+                <select id="liveScheduleDuration">
                     <option>30 minutes</option>
                     <option>1 hour</option>
                     <option>1.5 hours</option>
                     <option>2 hours</option>
                 </select>
-                <textarea id="liveClassTopic" name="liveClassTopic" placeholder="Topic/Description" required></textarea>
+                <textarea id="liveClassTopic" placeholder="Topic Outline" rows="2"></textarea>
                 <button type="button" data-action="schedule-live-class">Schedule Live Class</button>
             </div>
 
             <div class="feature-card">
-                <h3>📝 Create & Manage Quiz</h3>
-                <p>Create quizzes with questions and answers for students</p>
-                <input type="text" id="quizTitle" name="quizTitle" placeholder="Quiz Title" required>
-                <input type="text" id="quizQuestion" name="quizQuestion" placeholder="Enter Question" required>
-                <input type="text" id="quizOption1" name="quizOption1" placeholder="Option 1" required>
-                <input type="text" id="quizOption2" name="quizOption2" placeholder="Option 2" required>
-                <input type="text" id="quizOption3" name="quizOption3" placeholder="Option 3" required>
-                <input type="text" id="quizOption4" name="quizOption4" placeholder="Option 4" required>
-                <label for="correctAnswer">Correct Answer:</label>
-                <select id="correctAnswer" name="correctAnswer">
+                <h3>📝 Create Quiz</h3>
+                <p>Set up quiz questions for assessment</p>
+                <input type="text" id="quizTitle" placeholder="Quiz Title" required>
+                <input type="text" id="quizQuestion" placeholder="Enter Question" required>
+                <div class="form-matrix-grid">
+                    <input type="text" id="quizOption1" placeholder="Option 1">
+                    <input type="text" id="quizOption2" placeholder="Option 2">
+                    <input type="text" id="quizOption3" placeholder="Option 3">
+                    <input type="text" id="quizOption4" placeholder="Option 4">
+                </div>
+                <select id="correctAnswer">
                     <option>Select Correct Answer</option>
                     <option>Option 1</option>
                     <option>Option 2</option>
                     <option>Option 3</option>
                     <option>Option 4</option>
                 </select>
-                <button type="button" data-action="create-quiz">Add Question</button>
+                <button type="button" data-action="create-quiz">Save Question</button>
             </div>
 
         </div>
 
-        <button type="button" class="logout-btn" data-action="teacher-logout">Logout</button>
+        <button type="button" class="logout-btn" data-action="teacher-logout">Logout Teacher</button>
     </section>
 
+    <!-- System Admin Dashboard Portal View -->
+    <section id="adminDashboard" class="admin-dashboard login-hidden">
+        <h2>🛠️ Administrator Control Dashboard</h2>
+        <p style="margin-bottom:20px;">System Overview, User Details & Platform Uploads Monitor</p>
+
+        <div class="admin-grid">
+
+            <div class="admin-card">
+                <h3>👨‍🎓 Registered Students Logins & Enrolments</h3>
+                <table class="admin-table" id="adminStudentsTable">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Enrolled Courses</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="admin-card">
+                <h3>👩‍🏫 Registered Teachers Accounts</h3>
+                <table class="admin-table" id="adminTeachersTable">
+                    <thead>
+                        <tr>
+                            <th>Teacher ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject Specialization</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="admin-card">
+                <h3>📹 Uploaded Classes & Recorded Videos</h3>
+                <table class="admin-table" id="adminClassesTable">
+                    <thead>
+                        <tr>
+                            <th>Class Title</th>
+                            <th>Subject</th>
+                            <th>Duration</th>
+                            <th>Instructor</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="admin-card">
+                <h3>📄 Uploaded Notes & Study Material Details</h3>
+                <table class="admin-table" id="adminNotesTable">
+                    <thead>
+                        <tr>
+                            <th>Document Title</th>
+                            <th>Subject</th>
+                            <th>Uploaded By</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <button type="button" class="logout-btn" data-action="admin-logout">Logout Administrator</button>
+    </section>
+    <!-- System Admin Dashboard Portal View -->
+    <section id="adminDashboard" class="admin-dashboard login-hidden">
+        <h2>🛠️ Administrator Control Dashboard</h2>
+        <p style="margin-bottom:20px;">System Overview, User Details & Platform Uploads Monitor</p>
+
+        <div class="admin-grid">
+
+            <div class="admin-card">
+                <h3>👨‍🎓 Registered Students Logins & Enrolments</h3>
+                <table class="admin-table" id="adminStudentsTable">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Enrolled Courses</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="admin-card">
+                <h3>👩‍🏫 Registered Teachers Accounts</h3>
+                <table class="admin-table" id="adminTeachersTable">
+                    <thead>
+                        <tr>
+                            <th>Teacher ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject Specialization</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="admin-card">
+                <h3>📹 Uploaded Classes & Recorded Videos</h3>
+                <table class="admin-table" id="adminClassesTable">
+                    <thead>
+                        <tr>
+                            <th>Class Title</th>
+                            <th>Subject</th>
+                            <th>Duration</th>
+                            <th>Instructor</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="admin-card">
+                <h3>📄 Uploaded Notes & Study Material Details</h3>
+                <table class="admin-table" id="adminNotesTable">
+                    <thead>
+                        <tr>
+                            <th>Document Title</th>
+                            <th>Subject</th>
+                            <th>Uploaded By</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <button type="button" class="logout-btn" data-action="admin-logout">Logout Administrator</button>
+    </section>
+
+    <!-- Student Dashboard Area -->
     <section id="studentDashboard" class="student-dashboard login-hidden">
         <h2>Student Dashboard</h2>
         
         <nav class="dashboard-nav">
+            <button type="button" data-action="go-to-home">Dashboard</button>
             <button type="button" data-action="go-to-courses">Courses</button>
-            <button type="button" data-action="go-to-contact-details">Contact Details</button>
+            <button type="button" data-action="go-to-live-classes">Live Classes</button>
+            <button type="button" data-action="go-to-recorded-classes">Recorded Videos</button>
+            <button type="button" data-action="go-to-student-profile">Profile</button>
             <button type="button" data-action="student-logout" class="logout-nav">Logout</button>
         </nav>
 
-        <div id="dashboardContent" class="dashboard-content">
-            <h3>Welcome to Your Dashboard!</h3>
-            <p>Select from the menu above to navigate through different sections.</p>
-        </div>
+        <div id="dashboardContent" class="dashboard-content"></div>
     </section>
 
-    <p>Don't have an account?</p>
-
-<a href="register.html">
-<button>Register</button>
-</a>
+    <p class="register-link" style="margin-top: 15px; text-align: center;">Don't have an account? <a href="register.html">Register Here</a></p>
 
 </section>
 
@@ -134,6 +323,5 @@
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
