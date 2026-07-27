@@ -63,19 +63,22 @@
         </div>
         <button type="submit">Login as Teacher</button>
     </form>
-    <!-- Admin Login Form -->
+  <!-- Restricted Admin Login Form -->
     <form id="adminForm" class="login-form login-hidden">
+        <blockquote style="background:#f1f5f9; padding:10px; border-left:4px solid #0f172a; margin-bottom:15px; font-size:0.88rem;">
+            🔒 <strong>Restricted Access:</strong> This section is reserved for the platform System Administrator.
+        </blockquote>
         <div class="form-matrix-grid">
             <div>
-                <label>Admin Email</label>
-                <input type="email" id="adminEmail" placeholder="admin@learning.com" required autocomplete="email">
+                <label>Authorized Admin Email</label>
+                <input type="email" id="adminEmail" placeholder="superadmin@infinitylearning.com" required autocomplete="email">
             </div>
             <div>
-                <label>Admin Password</label>
+                <label>Secret Security Password</label>
                 <input type="password" id="adminPassword" placeholder="••••••••" required autocomplete="current-password">
             </div>
         </div>
-        <button type="submit">Login as Admin</button>
+        <button type="submit" style="background-color:#0f172a;">Authenticate System Admin</button>
     </form>
 
     <!-- Teacher Dashboard Section -->
@@ -154,82 +157,10 @@
 
         <button type="button" class="logout-btn" data-action="teacher-logout">Logout Teacher</button>
     </section>
-
-    <!-- System Admin Dashboard Portal View -->
+<!-- Authorized System Admin Dashboard Portal View -->
     <section id="adminDashboard" class="admin-dashboard login-hidden">
-        <h2>🛠️ Administrator Control Dashboard</h2>
-        <p style="margin-bottom:20px;">System Overview, User Details & Platform Uploads Monitor</p>
-
-        <div class="admin-grid">
-
-            <div class="admin-card">
-                <h3>👨‍🎓 Registered Students Logins & Enrolments</h3>
-                <table class="admin-table" id="adminStudentsTable">
-                    <thead>
-                        <tr>
-                            <th>Student ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Enrolled Courses</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <div class="admin-card">
-                <h3>👩‍🏫 Registered Teachers Accounts</h3>
-                <table class="admin-table" id="adminTeachersTable">
-                    <thead>
-                        <tr>
-                            <th>Teacher ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Subject Specialization</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <div class="admin-card">
-                <h3>📹 Uploaded Classes & Recorded Videos</h3>
-                <table class="admin-table" id="adminClassesTable">
-                    <thead>
-                        <tr>
-                            <th>Class Title</th>
-                            <th>Subject</th>
-                            <th>Duration</th>
-                            <th>Instructor</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <div class="admin-card">
-                <h3>📄 Uploaded Notes & Study Material Details</h3>
-                <table class="admin-table" id="adminNotesTable">
-                    <thead>
-                        <tr>
-                            <th>Document Title</th>
-                            <th>Subject</th>
-                            <th>Uploaded By</th>
-                            <th>Format</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-        </div>
-
-        <button type="button" class="logout-btn" data-action="admin-logout">Logout Administrator</button>
-    </section>
-    <!-- System Admin Dashboard Portal View -->
-    <section id="adminDashboard" class="admin-dashboard login-hidden">
-        <h2>🛠️ Administrator Control Dashboard</h2>
-        <p style="margin-bottom:20px;">System Overview, User Details & Platform Uploads Monitor</p>
+        <h2>🛠️ Authorized System Administrator Control Portal</h2>
+        <p style="margin-bottom:20px;">System Overview, User Logs & Content Master Monitor</p>
 
         <div class="admin-grid">
 
