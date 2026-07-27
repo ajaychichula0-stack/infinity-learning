@@ -11,7 +11,7 @@ const defaultCourses = [
 ];
 // Custom Admin Credentials
 const AUTHORIZED_ADMIN = {
-    email: "umpathichichula",
+    email: "umapathichichula@gmail.com",
     password: "AJAYKUMAR"
 };
 const defaultLiveClasses = [
