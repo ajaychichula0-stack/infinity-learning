@@ -9,7 +9,11 @@ const defaultCourses = [
     { id: 5, name: "Navodaya", description: "Learn Navodaya entrance material.", details: "Mental ability and language preparation." },
     { id: 6, name: "NEET", description: "Complete NEET preparatory courses.", details: "Biology, Chemistry, and Physics drills." }
 ];
-
+// Custom Admin Credentials
+const AUTHORIZED_ADMIN = {
+    email: "umpathichichula",
+    password: "AJAYKUMAR"
+};
 const defaultLiveClasses = [
     { id: 1, name: "EAPCET Physics Live", subject: "Physics", date: "2026-08-01", time: "10:00", duration: "1.5 hours", topic: "Mechanics & Wave Motion", instructor: "Prof. Sharma" },
     { id: 2, name: "JEE Mains Math Deep Dive", subject: "Mathematics", date: "2026-08-02", time: "14:00", duration: "2 hours", topic: "Calculus & Integration", instructor: "Dr. Rao" }
@@ -383,8 +387,8 @@ function teacherLogin(e) {
 
 function adminLogin(e) {
     e.preventDefault();
-    let inputEmail = sanitizeText(document.getElementById("umapathichichula@gmail.com").value);
-    let inputPassword = document.getElementById("AJAYKUMAR").value;
+    let inputEmail = sanitizeText(document.getElementById("adminEmail").value);
+    let inputPassword = document.getElementById("adminPassword").value;
 
     if (inputEmail.toLowerCase() === AUTHORIZED_ADMIN.email.toLowerCase() && inputPassword === AUTHORIZED_ADMIN.password) {
         hideLoginFormElements();
